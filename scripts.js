@@ -6,7 +6,7 @@ document.body.appendChild(caps);
 
 var boxes = document.createElement('div');
 boxes.id = 'box';
- 
+ numbox = 0;
 caps.appendChild(boxes);
 function makeBlocks(width) {
     var wides = ((960 - (2 * width)) / width) + "px";
@@ -16,6 +16,8 @@ function makeBlocks(width) {
         for (var j = 0; j < width; j++) {
             var box = document.createElement('div');
             box.className = "box";
+            box.id = numbox;
+            numbox += 1;
             box.style.height = wides;
             box.style.width = wides;
             row.appendChild(box);
@@ -24,4 +26,11 @@ function makeBlocks(width) {
     }
 }
 
-makeBlocks(16);
+makeBlocks(20);
+
+for (var i = 0; i < numbox; i++ ) {
+    const boxselect = document.getElementById(i)
+    boxselect.addEventListener('mouseover', function() {
+        boxselect.style.backgroundColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+    })
+}
