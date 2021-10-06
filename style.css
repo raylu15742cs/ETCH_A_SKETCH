@@ -11,8 +11,6 @@
 .box {
     background: white;
     border: black 1px solid;
-    min-width: 20px;
-    min-height: 20px;
     margin: 0 auto;
 }
 
