@@ -7,7 +7,6 @@
 #box {
     height: 700px;
     width: 700px;
-    background-color: red;
     display: flex;
 }
 
@@ -20,4 +19,8 @@
 }
 
 .row {
+}
+
+.box:hover {
+    background-color: aqua;
 }
