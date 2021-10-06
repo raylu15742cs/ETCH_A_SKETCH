@@ -6,6 +6,7 @@
 }
 #box {
     display: flex;
+    margin-top: 20px;
 }
 
 .box {
@@ -15,4 +16,9 @@
 }
 
 .row {
+}
+
+#choices {
+    height: 60px;
+    width: auto;
 }
