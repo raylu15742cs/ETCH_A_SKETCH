@@ -18,7 +18,8 @@
 .row {
 }
 
-#choices {
+#choices, #clear {
     height: 60px;
     width: auto;
+    margin-bottom: 8px;
 }

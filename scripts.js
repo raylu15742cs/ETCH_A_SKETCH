@@ -4,14 +4,22 @@ caps.innerHTML ='<h1>ETCH - A - SKETCH</h1>';
 document.body.appendChild(caps);
 
 var button = document.createElement('button');
-button.id = 'choices';
+button.id = 'clear';
 button.innerHTML = 'Clear the Grid';
 caps.appendChild(button);
 
-var boxes = document.createElement('div');
-boxes.id = 'box';
- numbox = 0;
-caps.appendChild(boxes);
+var choice = document.createElement('button');
+choice.id = 'choices';
+choice.innerHTML = 'Make new box';
+caps.appendChild(choice);
+function createsbox() {
+    var boxes = document.createElement('div');
+    boxes.id = 'box';
+    numbox = 0;
+    caps.appendChild(boxes);
+}
+
+createsbox();
 
 function makeBlocks(width) {
     var wides = ((960 - (2 * width)) / width) + "px";
@@ -32,16 +40,23 @@ function makeBlocks(width) {
     for (var i = 0; i < numbox; i++ ) {
         const boxselect = document.getElementById(i)
         boxselect.addEventListener('mouseover', function() {
-            boxselect.style.backgroundColor = "black";
+            boxselect.style.backgroundColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
         })
     }
+    for (var i = 0; i < numbox; i++ ) {
+        const clearbox = document.getElementById(i)
+        document.getElementById('clear').addEventListener('click', function() {
+            clearbox.style.backgroundColor = "white";
+    })
+}
 }
 makeBlocks(16);
 //random color generator'#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6) //
 
-for (var i = 0; i < numbox; i++ ) {
-        const clearbox = document.getElementById(i)
-        document.getElementById('choices').addEventListener('click', function() {
-            clearbox.style.backgroundColor = "white";
-    })
-}
+
+document.getElementById('choices').addEventListener('click', function() {
+    newheight = prompt('Enter value from 1 - 100');
+    document.getElementById('box').remove();
+    createsbox();
+    makeBlocks(newheight);
+})
