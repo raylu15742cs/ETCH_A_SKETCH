@@ -29,6 +29,7 @@ function createsbox() {
 
 createsbox();
 
+
 function makeBlocks(width) {
     var wides = ((960 - (2 * width)) / width) + "px";
     for (var i = 0; i < width; i++) {
@@ -56,6 +57,7 @@ function makeBlocks(width) {
         document.getElementById('clear').addEventListener('click', function() {
             clearbox.style.backgroundColor = "white";
     })
+    
 }
 }
 makeBlocks(16);
