@@ -3,20 +3,28 @@ caps.id = 'container';
 caps.innerHTML ='<h1>ETCH - A - SKETCH</h1>';
 document.body.appendChild(caps);
 
+var box2 = document.createElement('div');
+box2.id = "box2";
+document.body.appendChild(box2);
+
+var box3 = document.createElement('div');
+box3.id = "box3";
+box2.appendChild(box3);
+
 var button = document.createElement('button');
 button.id = 'clear';
 button.innerHTML = 'Clear the Grid';
-caps.appendChild(button);
+box3.appendChild(button);
 
 var choice = document.createElement('button');
 choice.id = 'choices';
 choice.innerHTML = 'Make new box';
-caps.appendChild(choice);
+box3.appendChild(choice);
 function createsbox() {
     var boxes = document.createElement('div');
     boxes.id = 'box';
     numbox = 0;
-    caps.appendChild(boxes);
+    box2.appendChild(boxes);
 }
 
 createsbox();
